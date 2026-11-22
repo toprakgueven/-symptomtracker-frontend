@@ -52,7 +52,7 @@ const bezeichnungField = ref('')
 const staerkeField = ref(1)
 
 async function loadSymptoms() {
-  const baseUrl = process.env.VITE_BACKEND_BASE_URL || 'http://localhost:8080'
+  const baseUrl = import.meta.env.VITE_BACKEND_BASE_URL
   const endpoint = baseUrl + '/symptoms'
   const response: AxiosResponse = await axios.get(endpoint)
   const responseData: Symptom[] = response.data
@@ -62,7 +62,7 @@ async function loadSymptoms() {
 }
 
 async function save() {
-  const baseUrl = process.env.VITE_BACKEND_BASE_URL || 'http://localhost:8080'
+  const baseUrl = import.meta.env.VITE_BACKEND_BASE_URL
   const endpoint = baseUrl + '/symptoms'
   const data: Symptom = {
     bezeichnung: bezeichnungField.value,
